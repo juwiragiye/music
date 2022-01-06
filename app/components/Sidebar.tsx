@@ -14,7 +14,7 @@ import { MdPlaylistAdd } from "react-icons/md";
 
 export function Sidebar() {
   return (
-    <aside className="w-36 flex flex-col justify-center text-slate-500 px-5   pt-24 h-screen fixed overflow-clip">
+    <aside className="w-36 flex flex-col justify-center text-slate-500 px-5  pt-10 h-screen fixed overflow-clip">
       <p className="mb-2 ml-1.5 font-semibold uppercase text-xs tracking-wider  ">
         Menu
       </p>

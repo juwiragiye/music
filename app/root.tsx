@@ -1,5 +1,6 @@
 import {
   Links,
+  LinksFunction,
   LiveReload,
   Meta,
   Outlet,
@@ -7,9 +8,14 @@ import {
   ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
+import styles from "./tailwind.css";
 
-export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+export let links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: styles }];
+};
+
+export let meta: MetaFunction = () => {
+  return { title: "Music App" };
 };
 
 export default function App() {
@@ -21,7 +27,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-indigo-50">
         <Outlet />
         <ScrollRestoration />
         <Scripts />

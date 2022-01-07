@@ -6,94 +6,69 @@ import {
   RefreshIcon,
   SaveIcon,
   GlobeAltIcon,
+  HeartIcon,
 } from "@heroicons/react/outline";
 
-import { HeartIcon } from "@heroicons/react/solid";
 import { MdPlaylistAdd } from "react-icons/md";
 import { NavLink } from "remix";
 
 export function Sidebar() {
   return (
-    <aside className="w-36 flex flex-col justify-center text-slate-500 px-5  pt-10 h-screen fixed overflow-clip">
-      <Menu />
-      <Library />
-      <p className="mb-2 ml-1.5 mt-10 font-semibold uppercase text-xs tracking-wider">
-        Playlists
-      </p>
-
-      <div className="flex flex-col text-sm  px-2 space-y-1 h-32 overflow-y-scroll scrollbar-hide">
-        <div className="flex  space-x-1 items-center overflow-clip">
-          <div className="rounded-full border-2 border-indigo-500 flex p-1.5  bg-indigo-300  "></div>
-          <p className="">Playlist One</p>
-        </div>
-        <div className="flex space-x-1 items-center">
-          <div className="rounded-full border-2 border-indigo-500 flex p-1.5  bg-indigo-300  "></div>
-          <p className="">Playlist Two</p>
-        </div>
-        <div className="flex  space-x-1 items-center">
-          <div className="rounded-full border-2 border-indigo-500 flex p-1.5  bg-indigo-300  "></div>
-          <p className="">Playlist Three</p>
-        </div>
-        <div className="flex  space-x-1 items-center">
-          <div className="rounded-full border-2 border-indigo-500 flex p-1.5  bg-indigo-300  "></div>
-          <p className="">Playlist Four</p>
-        </div>
-        <div className="flex  space-x-1 items-center">
-          <div className="rounded-full border-2 border-indigo-500 flex p-1.5  bg-indigo-300  "></div>
-          <p className="">Playlist Four</p>
-        </div>
-      </div>
-      <button className="flex mt-10 justify-center align-center text-xs bg-indigo-200 rounded-md py-1 ">
-        <MdPlaylistAdd size={20} className=" text-indigo-500 " />
-        <p>New Playlist</p>
-      </button>
-    </aside>
+    <section>
+      <BottomNavigation />
+      <aside className="hidden sm:flex flex-col w-40 text-gray-500 space-y-4 sm:h-screen justify-center pl-3 lg:text-base xl:text-lg">
+        <Menu />
+        <Library />
+        <NewPlalist />
+      </aside>
+    </section>
   );
 }
 
 export function Menu() {
   return (
     <>
-      <p className="mb-2 ml-1.5 font-semibold uppercase text-xs tracking-wider  ">
-        Menu
-      </p>
-      <div className="flex flex-col items-center space-y-4 px-2">
-        <NavLink
-          to="/login"
-          className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer  sm:py-1 sm:px-2 rounded-md sm:mr-2 sm:bg-gray-100 sm:shadow-md"
-        >
-          <HomeIcon className="h-6 text-indigo-500 sm:h-3" />
-          <span className="text-indigo-50  w-4  sm:text-gray-500">Home</span>
-        </NavLink>
-        <NavLink
-          to="/"
-          className="flex text-sm w-full  items-center space-x-2 cursor-pointer"
-        >
-          <SearchIcon className="h-6 text-indigo-500 sm:h-3" />
-          <span className="text-indigo-50  w-4  sm:text-gray-500">Browse</span>
-        </NavLink>
-
-        <NavLink
-          to="/"
-          className="flex text-sm  w-full  items-center  space-x-2 cursor-pointer"
-        >
-          <UserIcon className="h-6 text-indigo-500 sm:h-3" />
-          <span className="text-indigo-50  w-4  sm:text-gray-500">Artits</span>
-        </NavLink>
-        <NavLink
-          to="/"
-          className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer"
-        >
-          <CollectionIcon className="h-6 text-indigo-500 sm:h-3" />
-          <span className="text-indigo-50  w-4  sm:text-gray-500">Albums</span>
-        </NavLink>
-        <NavLink
-          to="/"
-          className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer"
-        >
-          <GlobeAltIcon className="h-6 text-indigo-500 sm:h-3" />
-          <span className="text-indigo-50  w-4  sm:text-gray-500">Genres</span>
-        </NavLink>
+      <div>
+        <p className=" mb-2 ml-1.5 font-semibold  text-xs tracking-wider   lg:text-base xl:text-lg md:tracking-normal md:capitalize  ">
+          Menu
+        </p>
+        <div className="flex flex-col items-center space-y-4 px-2">
+          <NavLink
+            to="/login"
+            className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer  sm:py-1 sm:px-2 rounded-md sm:mr-2 sm:bg-gray-100 sm:shadow-md"
+          >
+            <HomeIcon className="text-indigo-500 sm:h-3 md:h-4" />
+            <span className=" ">Home</span>
+          </NavLink>
+          <NavLink
+            to="/"
+            className="flex text-sm w-full  items-center space-x-2 cursor-pointer"
+          >
+            <SearchIcon className="text-indigo-500 sm:h-3 md:h-4" />
+            <span className=" ">Browse</span>
+          </NavLink>
+          <NavLink
+            to="/"
+            className="flex text-sm  w-full  items-center  space-x-2 cursor-pointer"
+          >
+            <UserIcon className="text-indigo-500 sm:h-3 md:h-4" />
+            <span className=" ">Artits</span>
+          </NavLink>
+          <NavLink
+            to="/"
+            className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer"
+          >
+            <CollectionIcon className="text-indigo-500 sm:h-3 md:h-4" />
+            <span className=" ">Albums</span>
+          </NavLink>
+          <NavLink
+            to="/"
+            className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer"
+          >
+            <GlobeAltIcon className="text-indigo-500 sm:h-3 md:h-4" />
+            <span className=" ">Genres</span>
+          </NavLink>
+        </div>
       </div>
     </>
   );
@@ -102,27 +77,73 @@ export function Menu() {
 function Library() {
   return (
     <>
-      <p className="mb-2 ml-1.5 mt-10 font-semibold uppercase text-xs tracking-wider">
-        Library
-      </p>
-      <div className=" flex flex-col items-center  space-y-4 px-2  b-red-400">
-        <div className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer">
-          <SaveIcon className="h-3 text-indigo-500" />
-          <p>Playlists</p>
-        </div>
-        <div className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer">
-          <RefreshIcon className="h-3 text-indigo-500" />
-          <p>Recents</p>
-        </div>
-        <div className="flex text-sm  w-full  items-center  space-x-2 cursor-pointer">
-          <UserIcon className="h-3 text-indigo-500" />
-          <p>Artits</p>
-        </div>
-        <div className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer">
-          <HeartIcon className="h-3 text-indigo-500" />
-          <p>Favourites</p>
+      <div className="">
+        <p className="mb-2 ml-1.5 font-semibold  text-xs tracking-wider   lg:text-base xl:text-lg md:tracking-normal md:capitalize">
+          Library
+        </p>
+        <div className=" flex flex-col items-center  space-y-4 px-2">
+          <NavLink
+            to="/"
+            className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer"
+          >
+            <SaveIcon className=" h-3 text-indigo-500 md:h-4" />
+            <span className="">Playlists</span>
+          </NavLink>
+          <NavLink
+            to="/"
+            className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer"
+          >
+            <RefreshIcon className=" h-3 text-indigo-500 md:h-4" />
+            <span className="">Recents</span>
+          </NavLink>
+          <NavLink
+            to="/"
+            className="flex text-sm  w-full  items-center  space-x-2 cursor-pointer"
+          >
+            <UserIcon className=" h-3 text-indigo-500 md:h-4" />
+            <span className="">Artits</span>
+          </NavLink>
+          <NavLink
+            to="/"
+            className="flex  text-sm  w-full  items-center space-x-2 cursor-pointer"
+          >
+            <HeartIcon className=" h-3 text-indigo-500 md:h-4" />
+            <span className="">Favourites</span>
+          </NavLink>
         </div>
       </div>
     </>
+  );
+}
+
+export function NewPlalist() {
+  return (
+    <div className="flex justify-center text-sm md:text-base">
+      <button className="flex px-3 py-0.5 rounded-md shadow-sm bg-indigo-200 items-center justify-center mr-4 my-8 ">
+        <MdPlaylistAdd size={20} className=" text-indigo-500 " />
+        <span className="">New Playlist</span>
+      </button>
+    </div>
+  );
+}
+
+export function BottomNavigation() {
+  return (
+    <nav>
+      <div className="sm:hidden flex h-screen items-end px-4 py-2 justify-between ">
+        <NavLink to="/" className="">
+          <HomeIcon className=" h-8 text-indigo-500" />
+        </NavLink>
+        <NavLink to="/" className="cursor-pointer">
+          <SearchIcon className=" h-8 text-indigo-500" />
+        </NavLink>
+        <NavLink to="/" className="cursor-pointer">
+          <UserIcon className=" h-8 text-indigo-500" />
+        </NavLink>
+        <NavLink to="/" className="cursor-pointer">
+          <HeartIcon className=" h-8 text-indigo-500" />
+        </NavLink>
+      </div>
+    </nav>
   );
 }
